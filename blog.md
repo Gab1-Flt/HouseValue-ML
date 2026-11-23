@@ -207,7 +207,8 @@ Before the final Stage B deadline, we plan to extend this baseline with:
 HouseValue-ML/
 ├── .gitignore                 # Ignore caches, venvs, and serialized model binaries
 ├── LICENSE                    # MIT License
-├── README.md                  # ITE 351 Tech Blog (Stage A)
+├── README.md                  # Concise project overview & link to the full blog
+├── blog.md                    # Full ITE 351 Tech Blog (Stage A)
 ├── requirements.txt           # Python dependencies
 ├── train.py                   # Reproducible ML training, CV, plotting & inference script
 ├── housing_prediction.ipynb   # Interactive Jupyter notebook walkthrough

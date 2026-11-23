@@ -1,135 +1,69 @@
-# 🏡 California Housing Price Prediction: Project Overview & Roadmap
+# 🏡 HouseValue-ML — California Housing Price Prediction
 
+[![Course](https://img.shields.io/badge/Course-ITE%20351%3A%20AI%20%26%20Applications-1E3A8A)](https://gab1-flt.github.io/HouseValue-ML/blog)
+[![Tech Blog](https://img.shields.io/badge/Tech%20Blog-Read%20Full%20Report-047857)](https://gab1-flt.github.io/HouseValue-ML/blog)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![Scikit-Learn](https://img.shields.io/badge/scikit--learn-v1.3%2B-orange?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![Pandas](https://img.shields.io/badge/pandas-v2.0%2B-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io/badge/Status-In%20Progress-orange)]()
+[![Scikit-Learn](https://img.shields.io/badge/scikit--learn-v1.7-orange?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> **Academic AI / Machine Learning Project (Option A — Kaggle Style):** A step-by-step regression project aimed at predicting median house values in California districts using Python and `scikit-learn`.
-
----
-
-## 📌 Project Overview
-
-Valuing real estate properties is a classic and challenging problem in predictive modeling. Property values depend on an intricate blend of geographic positioning, structural characteristics, and local socioeconomic factors.
-
-This project focuses on building an end-to-end Machine Learning regression pipeline to estimate median house values across California census block groups.
-
-### Objectives:
-- Perform exploratory data analysis (EDA) to understand feature distributions and correlations.
-- Implement and compare multiple regression models (e.g., standard baseline vs. non-linear ensemble methods).
-- Evaluate model performances with standard statistical metrics ($MAE$, $MSE$, $RMSE$, and $R^2$).
-- Deploy a clean inference function capable of predicting house prices for newly observed districts.
+> 📖 **Full Technical Blog & Detailed Analysis:**
+> All exploratory data analysis (EDA), spatial maps, correlation matrices, methodology details, and model diagnostics are available in our dedicated Tech Blog:
+> 👉 **[Read the Full Tech Blog Online (GitHub Pages)](https://gab1-flt.github.io/HouseValue-ML/blog)** · **[View `blog.md` Source](blog.md)**
 
 ---
 
-## 📊 Dataset: California Housing
+## 📌 Executive Summary
 
-The project will utilize the standard **California Housing Dataset** (derived from the 1990 U.S. Census), available through `sklearn.datasets.fetch_california_housing`.
+**HouseValue-ML** is a reproducible Machine Learning regression pipeline built with `scikit-learn` to predict median house values (`MedHouseVal`) and analyze real estate market trends across **`20,640` California census block groups** (`8` socioeconomic and geographic features, `0` missing values, `80% / 20%` train-test split, `random_state=42`).
 
-- **Size:** $20,640$ district observations
-- **Target:** `MedHouseVal` — Median house value for California districts (expressed in units of $\$100,000$)
+---
 
-### Features Dictionary
+## 📊 Key Results at a Glance
 
-| Feature | Description | Unit / Scale |
+| Model | Test MAE (USD) | Test RMSE (USD) | Test R² | 5-Fold CV R² |
+| :--- | ---: | ---: | ---: | ---: |
+| **Linear Regression** *(Baseline)* | 53,320 USD | 74,558 USD | 0.5758 | 0.6115 ± 0.0124 |
+| **Random Forest** *(200 trees)* | 32,659 USD | 50,391 USD | 0.8062 | 0.8058 ± 0.0063 |
+| **HistGradientBoosting** *(Best)* | **29,454 USD** | **44,571 USD** | **0.8484** | **0.8400 ± 0.0046** |
+
+- **Top Model:** `HistGradientBoostingRegressor` cuts test RMSE by **`40.2%`** (`29,987 USD`) compared to the linear baseline.
+- **Primary Market Drivers (Permutation Importance):** `Latitude` (`0.9875`), `Longitude` (`0.8346`), and `MedInc` (`0.4145`).
+- 👉 **[See all figures, feature statistics, and inference examples in the Full Tech Blog](https://gab1-flt.github.io/HouseValue-ML/blog)**
+
+---
+
+## 👥 Team Members (ITE 351 — ECE Paris)
+
+| Member | Department & University | Email |
 | :--- | :--- | :--- |
-| `MedInc` | Median income in block group | Tens of thousands of USD |
-| `HouseAge` | Median house age in block group | Years |
-| `AveRooms` | Average number of rooms per household | Count |
-| `AveBedrms` | Average number of bedrooms per household | Count |
-| `Population` | Total block group population | Count |
-| `AveOccup` | Average number of household members | Ratio |
-| `Latitude` | Geographic latitude of district center | Degrees North |
-| `Longitude` | Geographic longitude of district center | Degrees West |
+| **Corentin Lepeltier** | Computer Science & Engineering, ECE Paris (ITE 351) | `corentin.lepeltier@edu.ece.fr` |
+| **Gabin Flotat** | Computer Science & Engineering, ECE Paris (ITE 351) | `gabin.flotat@edu.ece.fr` |
+| **Roméo Poncelet** | Computer Science & Engineering, ECE Paris (ITE 351) | `romeo.poncelet@edu.ece.fr` |
 
 ---
 
-## 🗺️ Planned Methodology & Roadmap
-
-The project is structured into 5 iterative phases inspired by Kaggle best practices:
-
-```text
-[Phase 1: Exploration]  ──>  [Phase 2: Preprocessing]  ──>  [Phase 3: Modeling]  ──>  [Phase 4: Evaluation]  ──>  [Phase 5: Inference]
-```
-
-### 1. Exploratory Data Analysis (EDA)
-- Check data cleanliness and potential missing values.
-- Compute summary statistics (mean, median, standard deviations).
-- Analyze feature correlations with the target variable (`MedHouseVal`).
-
-### 2. Preprocessing & Data Splitting
-- Partition the dataset into **80% training** and **20% testing** partitions to prevent data snooping.
-- Apply feature normalization (e.g., `StandardScaler`) where required using leak-free pipelines (`Pipeline`).
-
-### 3. Model Training & Comparison
-We plan to benchmark at least two distinct regression families:
-- **Baseline Model:** Multiple Linear Regression (analytical OLS baseline).
-- **Non-Linear Model:** Random Forest Regressor (ensemble of decision trees).
-
-### 4. Quantitative Evaluation
-The candidate models will be compared using:
-- **Mean Absolute Error (MAE)**
-- **Mean Squared Error (MSE)**
-- **Root Mean Squared Error (RMSE)**
-- **$R^2$ Score (Coefficient of Determination)**
-
-### 5. Single-Sample Inference
-- Simulate custom property feature vectors (e.g., a candidate house in Northern California) to test real-world prediction output.
-
----
-
-## 📁 Repository Structure
+## 📁 Repository Structure & Quick Start
 
 ```text
 HouseValue-ML/
-│
-├── .gitignore               # Standard Git ignore rules
-├── LICENSE                  # MIT License
-├── README.md                # Project documentation and roadmap
-├── requirements.txt         # Required Python packages
-│
-├── train.py                 # (To be added) Main training & evaluation script
-└── housing_prediction.ipynb # (To be added) Interactive step-by-step notebook
+├── README.md                  # Concise project overview (this page)
+├── blog.md                    # Full ITE 351 Tech Blog (Stage A report & analysis)
+├── train.py                   # Reproducible ML training, CV, plotting & inference script
+├── housing_prediction.ipynb   # Interactive Jupyter notebook walkthrough
+├── requirements.txt           # Python dependencies
+├── assets/figures/            # Generated EDA & evaluation figures (PNG)
+└── results/metrics.json       # Exact descriptive statistics & benchmark metrics
 ```
 
----
-
-## 🛠️ Tech Stack & Dependencies
-
-- **Language:** Python 3.10+
-- **Machine Learning:** `scikit-learn`
-- **Data Manipulation:** `pandas`, `numpy`
-- **Visualization:** `matplotlib`, `seaborn`
-- **Serialization:** `joblib`
-
----
-
-## 🚀 Setup & Installation
-
-To initialize the project environment locally:
-
 ```bash
-# 1. Clone the repository
-git clone https://github.com/<your-username>/HouseValue-ML.git
+git clone https://github.com/Gab1-Flt/HouseValue-ML.git
 cd HouseValue-ML
-
-# 2. Create a virtual environment
-python -m venv venv
-
-# 3. Activate the environment
-# On Windows (PowerShell):
-venv\Scripts\Activate.ps1
-# On macOS / Linux:
-source venv/bin/activate
-
-# 4. Install dependencies
 pip install -r requirements.txt
+python3 train.py
 ```
 
 ---
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+Distributed under the [MIT License](LICENSE).
