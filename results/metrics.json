@@ -1,0 +1,249 @@
+{
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "train_samples": 16512,
+    "test_samples": 4128
+  },
+  "dataset_summary": {
+    "n_samples": 20640,
+    "n_features": 8,
+    "feature_names": [
+      "MedInc",
+      "HouseAge",
+      "AveRooms",
+      "AveBedrms",
+      "Population",
+      "AveOccup",
+      "Latitude",
+      "Longitude"
+    ],
+    "target_name": "MedHouseVal",
+    "missing_values_total": 0,
+    "missing_values_per_column": {
+      "MedInc": 0,
+      "HouseAge": 0,
+      "AveRooms": 0,
+      "AveBedrms": 0,
+      "Population": 0,
+      "AveOccup": 0,
+      "Latitude": 0,
+      "Longitude": 0,
+      "MedHouseVal": 0
+    },
+    "capped_at_500k_count": 992,
+    "capped_at_500k_pct": 4.81,
+    "descriptive_stats": {
+      "MedInc": {
+        "mean": 3.8707,
+        "std": 1.8998,
+        "min": 0.4999,
+        "q25": 2.5634,
+        "median": 3.5348,
+        "q75": 4.7432,
+        "max": 15.0001
+      },
+      "HouseAge": {
+        "mean": 28.6395,
+        "std": 12.5856,
+        "min": 1.0,
+        "q25": 18.0,
+        "median": 29.0,
+        "q75": 37.0,
+        "max": 52.0
+      },
+      "AveRooms": {
+        "mean": 5.429,
+        "std": 2.4742,
+        "min": 0.8462,
+        "q25": 4.4407,
+        "median": 5.2291,
+        "q75": 6.0524,
+        "max": 141.9091
+      },
+      "AveBedrms": {
+        "mean": 1.0967,
+        "std": 0.4739,
+        "min": 0.3333,
+        "q25": 1.0061,
+        "median": 1.0488,
+        "q75": 1.0995,
+        "max": 34.0667
+      },
+      "Population": {
+        "mean": 1425.4767,
+        "std": 1132.4621,
+        "min": 3.0,
+        "q25": 787.0,
+        "median": 1166.0,
+        "q75": 1725.0,
+        "max": 35682.0
+      },
+      "AveOccup": {
+        "mean": 3.0707,
+        "std": 10.386,
+        "min": 0.6923,
+        "q25": 2.4297,
+        "median": 2.8181,
+        "q75": 3.2823,
+        "max": 1243.3333
+      },
+      "Latitude": {
+        "mean": 35.6319,
+        "std": 2.136,
+        "min": 32.54,
+        "q25": 33.93,
+        "median": 34.26,
+        "q75": 37.71,
+        "max": 41.95
+      },
+      "Longitude": {
+        "mean": -119.5697,
+        "std": 2.0035,
+        "min": -124.35,
+        "q25": -121.8,
+        "median": -118.49,
+        "q75": -118.01,
+        "max": -114.31
+      },
+      "MedHouseVal": {
+        "mean": 2.0686,
+        "std": 1.154,
+        "min": 0.15,
+        "q25": 1.196,
+        "median": 1.797,
+        "q75": 2.6472,
+        "max": 5.0
+      }
+    },
+    "target_correlations": {
+      "MedInc": 0.6881,
+      "AveRooms": 0.1519,
+      "HouseAge": 0.1056,
+      "AveOccup": -0.0237,
+      "Population": -0.0246,
+      "Longitude": -0.046,
+      "AveBedrms": -0.0467,
+      "Latitude": -0.1442
+    }
+  },
+  "models": [
+    {
+      "model": "Linear Regression",
+      "test_mae": 0.5332,
+      "test_mse": 0.5559,
+      "test_rmse": 0.7456,
+      "test_r2": 0.5758,
+      "test_mae_usd": 53320.0,
+      "test_rmse_usd": 74558.0,
+      "cv_r2_mean": 0.6115,
+      "cv_r2_std": 0.0124,
+      "cv_rmse_mean": 0.7205,
+      "cv_rmse_std": 0.0139,
+      "fit_time_sec": 0.009
+    },
+    {
+      "model": "Random Forest",
+      "test_mae": 0.3266,
+      "test_mse": 0.2539,
+      "test_rmse": 0.5039,
+      "test_r2": 0.8062,
+      "test_mae_usd": 32659.0,
+      "test_rmse_usd": 50391.0,
+      "cv_r2_mean": 0.8058,
+      "cv_r2_std": 0.0063,
+      "cv_rmse_mean": 0.5095,
+      "cv_rmse_std": 0.0121,
+      "fit_time_sec": 4.052
+    },
+    {
+      "model": "HistGradientBoosting",
+      "test_mae": 0.2945,
+      "test_mse": 0.1987,
+      "test_rmse": 0.4457,
+      "test_r2": 0.8484,
+      "test_mae_usd": 29454.0,
+      "test_rmse_usd": 44571.0,
+      "cv_r2_mean": 0.84,
+      "cv_r2_std": 0.0046,
+      "cv_rmse_mean": 0.4625,
+      "cv_rmse_std": 0.011,
+      "fit_time_sec": 3.292
+    }
+  ],
+  "best_model": "HistGradientBoosting",
+  "permutation_importance": [
+    {
+      "feature": "Latitude",
+      "importance_mean": 0.9875,
+      "importance_std": 0.0207
+    },
+    {
+      "feature": "Longitude",
+      "importance_mean": 0.8346,
+      "importance_std": 0.0115
+    },
+    {
+      "feature": "MedInc",
+      "importance_mean": 0.4145,
+      "importance_std": 0.0114
+    },
+    {
+      "feature": "AveOccup",
+      "importance_mean": 0.1469,
+      "importance_std": 0.0044
+    },
+    {
+      "feature": "AveRooms",
+      "importance_mean": 0.0676,
+      "importance_std": 0.0042
+    },
+    {
+      "feature": "HouseAge",
+      "importance_mean": 0.0431,
+      "importance_std": 0.0024
+    },
+    {
+      "feature": "Population",
+      "importance_mean": 0.0087,
+      "importance_std": 0.0006
+    },
+    {
+      "feature": "AveBedrms",
+      "importance_mean": 0.006,
+      "importance_std": 0.0013
+    }
+  ],
+  "sample_predictions": [
+    {
+      "profile": "Coastal Bay Area District",
+      "features": {
+        "MedInc": 7.8,
+        "HouseAge": 32.0,
+        "AveRooms": 6.4,
+        "AveBedrms": 1.08,
+        "Population": 1150.0,
+        "AveOccup": 2.6,
+        "Latitude": 37.75,
+        "Longitude": -122.42
+      },
+      "predicted_value_usd": 441008.02,
+      "predicted_value_100k": 4.4101
+    },
+    {
+      "profile": "Inland Central Valley District",
+      "features": {
+        "MedInc": 3.1,
+        "HouseAge": 22.0,
+        "AveRooms": 5.1,
+        "AveBedrms": 1.05,
+        "Population": 1600.0,
+        "AveOccup": 3.1,
+        "Latitude": 36.75,
+        "Longitude": -119.77
+      },
+      "predicted_value_usd": 72920.19,
+      "predicted_value_100k": 0.7292
+    }
+  ]
+}
