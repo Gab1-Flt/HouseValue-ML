@@ -6,6 +6,11 @@
 [![Scikit-Learn](https://img.shields.io/badge/scikit--learn-v1.7-orange?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+**Team Members (ITE 351 — AI & Applications, ECE Paris):**
+- **Corentin Lepeltier** — Computer Science & Engineering, ECE Paris (`corentin.lepeltier@edu.ece.fr`)
+- **Gabin Flotat** — Computer Science & Engineering, ECE Paris (`gabin.flotat@edu.ece.fr`)
+- **Roméo Poncelet** — Computer Science & Engineering, ECE Paris (`romeo.poncelet@edu.ece.fr`)
+
 > 📖 **Full Technical Blog & Detailed Analysis:**
 > All exploratory data analysis (EDA), spatial maps, correlation matrices, methodology details, and model diagnostics are available in our dedicated Tech Blog:
 > 👉 **[Read the Full Tech Blog Online (GitHub Pages)](https://gab1-flt.github.io/HouseValue-ML/blog)** · **[View `blog.md` Source](blog.md)**
@@ -29,16 +34,6 @@
 - **Top Model:** `HistGradientBoostingRegressor` cuts test RMSE by **`40.2%`** (`29,987 USD`) compared to the linear baseline.
 - **Primary Market Drivers (Permutation Importance):** `Latitude` (`0.9875`), `Longitude` (`0.8346`), and `MedInc` (`0.4145`).
 - 👉 **[See all figures, feature statistics, and inference examples in the Full Tech Blog](https://gab1-flt.github.io/HouseValue-ML/blog)**
-
----
-
-## 👥 Team Members (ITE 351 — ECE Paris)
-
-| Member | Department & University | Email |
-| :--- | :--- | :--- |
-| **Corentin Lepeltier** | Computer Science & Engineering, ECE Paris (ITE 351) | `corentin.lepeltier@edu.ece.fr` |
-| **Gabin Flotat** | Computer Science & Engineering, ECE Paris (ITE 351) | `gabin.flotat@edu.ece.fr` |
-| **Roméo Poncelet** | Computer Science & Engineering, ECE Paris (ITE 351) | `romeo.poncelet@edu.ece.fr` |
 
 ---
 
