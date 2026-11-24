@@ -14,13 +14,13 @@ title: "HouseValue-ML: Stage A Tech Blog"
 
 ---
 
-## Project Metadata & Team Members
+## Team
 
-| Member | Department & University | Email |
+| Member | Department | Email |
 | :--- | :--- | :--- |
-| **Corentin Lepeltier** | Computer Science & Engineering, ECE Paris (ITE 351) | `corentin.lepeltier@edu.ece.fr` |
-| **Gabin Flotat** | Computer Science & Engineering, ECE Paris (ITE 351) | `gabin.flotat@edu.ece.fr` |
-| **Roméo Poncelet** | Computer Science & Engineering, ECE Paris (ITE 351) | `romeo.poncelet@edu.ece.fr` |
+| **Corentin Lepeltier** | Computer Science | `corentin.lepeltier@edu.ece.fr` |
+| **Gabin Flotat** | Computer Science | `gabin.flotat@edu.ece.fr` |
+| **Roméo Poncelet** | Computer Science | `romeo.poncelet@edu.ece.fr` |
 
 **Presentation Video / Audio (Task 2):** *To be added for Stage B final submission (under 10-minute blog walkthrough & live inference demo).*
 
@@ -28,13 +28,15 @@ title: "HouseValue-ML: Stage A Tech Blog"
 
 ## Table of Contents
 
-- [I. Introduction](#i-introduction)
-- [II. Datasets](#ii-datasets)
-- [III. Methodology](#iii-methodology)
-- [IV. Evaluation & Analysis](#iv-evaluation--analysis)
-- [V. Related Work & References](#v-related-work--references)
-- [VI. Conclusion & Next Steps](#vi-conclusion--next-steps)
-- [Repository Structure & Setup](#repository-structure--setup)
+| Section | Topic | Highlights |
+| :---: | :--- | :--- |
+| **I** | [**Introduction**](#i-introduction) | Motivation, real estate context & expected outcomes |
+| **II** | [**Datasets**](#ii-datasets) | California Housing overview, statistics & EDA findings |
+| **III** | [**Methodology**](#iii-methodology) | 5-stage pipeline, leak-free preprocessing, models & inference |
+| **IV** | [**Evaluation & Analysis**](#iv-evaluation--analysis) | Quantitative benchmark, diagnostic plots & feature importance |
+| **V** | [**Related Work & References**](#v-related-work--references) | Academic papers, foundational references & libraries |
+| **VI** | [**Conclusion & Next Steps**](#vi-conclusion--next-steps) | Stage A summary & Stage B roadmap |
+| **—** | [**Repository Structure & Setup**](#repository-structure--setup) | Project layout & local reproduction steps |
 
 ---
 
