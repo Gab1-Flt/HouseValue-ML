@@ -1,0 +1,12 @@
+title: "HouseValue-ML"
+description: "Predicting California Real Estate Prices and Analyzing Housing Market Trends"
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

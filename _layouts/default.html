@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HouseValue-ML — California Real Estate Price Prediction</title>
+  <meta name="description" content="A step-by-step Machine Learning pipeline using scikit-learn to predict California real estate prices and analyze housing market trends.">
+
+  <!-- Google Fonts matching JEECE editorial design system -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.github.build_revision | default: '1' }}">
+</head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <!-- Floating Glassmorphic Navbar (JEECE-inspired) -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner" aria-label="Primary navigation">
+      <a href="#top" class="brand">
+        <span class="brand-badge">H.</span>
+        <span class="brand-text">HouseValue<span class="brand-accent">-ML</span></span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#i-introduction" class="nav-link">Intro</a>
+        <a href="#ii-datasets" class="nav-link">Datasets</a>
+        <a href="#iii-methodology" class="nav-link">Methodology</a>
+        <a href="#iv-evaluation--analysis" class="nav-link">Evaluation</a>
+        <a href="#v-related-work--references" class="nav-link">References</a>
+        <a href="#vi-conclusion--next-steps" class="nav-link">Conclusion</a>
+      </div>
+
+      <a href="https://github.com/Gab1-Flt/HouseValue-ML" target="_blank" rel="noopener noreferrer" class="nav-cta">
+        <span>GitHub Repo</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 17L17 7"></path>
+          <path d="M7 7h10v10"></path>
+        </svg>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero Section (Deep Navy + Emerald Silk Gradient + Frosted KPI Strip) -->
+  <section class="hero" id="top">
+    <div class="hero-glow hero-glow--emerald" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow--ocean" aria-hidden="true"></div>
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+    <div class="hero-container">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-bar" aria-hidden="true"></span>
+        <span>ITE 351 · AI &amp; Applications · Computer Science</span>
+      </div>
+
+      <h1 class="hero-title" id="heroTitle">
+        HouseValue-ML: Predicting <span class="text-accent">California Real Estate Prices</span> and Analyzing Housing Market Trends
+      </h1>
+
+      <div class="hero-actions">
+        <a href="#table-of-contents" class="btn btn-primary">
+          <span>Explore Report</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14"></path>
+            <path d="m19 12-7 7-7-7"></path>
+          </svg>
+        </a>
+        <a href="#iv-evaluation--analysis" class="btn btn-ghost">
+          <span>View Model Benchmark</span>
+        </a>
+      </div>
+
+      <!-- Frosted Glass KPI Bar (JEECE Signature Pattern) -->
+      <div class="hero-kpis" aria-label="Key project metrics">
+        <div class="kpi-item">
+          <div class="kpi-value">20,640</div>
+          <div class="kpi-label">Census Block Groups</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-value">8</div>
+          <div class="kpi-label">Socioeconomic &amp; Geo Features</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-value kpi-value--accent">0.8484</div>
+          <div class="kpi-label">Best Test R&sup2; Score</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-value">44,571 USD</div>
+          <div class="kpi-label">Best Test RMSE</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-value kpi-value--accent">-40.2%</div>
+          <div class="kpi-label">RMSE vs Linear Baseline</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Editorial Content (Unmodified README.md Markdown) -->
+  <main class="page-main">
+    <article class="content-container" id="blogContent">
+      {{ content }}
+    </article>
+  </main>
+
+  <!-- Dark Navy Footer (JEECE-inspired) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <span class="brand-badge">H.</span>
+            <span class="brand-text">HouseValue<span class="brand-accent">-ML</span></span>
+          </div>
+          <p class="footer-desc">
+            Reproducible scikit-learn regression pipeline predicting California median house values and analyzing real estate market trends.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">Report Sections</h3>
+          <ul class="footer-links">
+            <li><a href="#i-introduction">I. Introduction</a></li>
+            <li><a href="#ii-datasets">II. Datasets</a></li>
+            <li><a href="#iii-methodology">III. Methodology</a></li>
+            <li><a href="#iv-evaluation--analysis">IV. Evaluation &amp; Analysis</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#v-related-work--references">V. Related Work &amp; References</a></li>
+            <li><a href="#vi-conclusion--next-steps">VI. Conclusion &amp; Next Steps</a></li>
+            <li><a href="#repository-structure--setup">Repository Structure &amp; Setup</a></li>
+            <li><a href="https://github.com/Gab1-Flt/HouseValue-ML" target="_blank" rel="noopener noreferrer">Source Code on GitHub &nearr;</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>HouseValue-ML · Corentin Lepeltier, Gabin Flotat, Rom&eacute;o Poncelet</span>
+        <span>MIT License · Built with scikit-learn &amp; GitHub Pages</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Image Lightbox Modal -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged figure preview" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+
+  <script>
+    (function () {
+      const content = document.getElementById('blogContent');
+      if (!content) return;
+
+      // 1. Remove duplicate H1 from article body since it is displayed in the hero
+      const firstH1 = content.querySelector('h1');
+      if (firstH1) {
+        firstH1.remove();
+      }
+
+      // 2. Group each H2 section into an elevated editorial card (without changing any text)
+      const nodes = Array.from(content.childNodes);
+      const fragment = document.createDocumentFragment();
+      let currentCard = null;
+
+      nodes.forEach((node) => {
+        // Skip standalone <hr> dividers since cards provide natural visual separation
+        if (node.nodeType === 1 && node.tagName === 'HR') {
+          return;
+        }
+        // Skip whitespace-only text nodes between cards
+        if (node.nodeType === 3 && !node.textContent.trim() && !currentCard) {
+          return;
+        }
+
+        if (node.nodeType === 1 && node.tagName === 'H2') {
+          currentCard = document.createElement('section');
+          currentCard.className = 'editorial-card';
+          if (node.id) {
+            currentCard.dataset.section = node.id;
+          }
+          fragment.appendChild(currentCard);
+        }
+
+        if (currentCard) {
+          currentCard.appendChild(node);
+        } else {
+          fragment.appendChild(node);
+        }
+      });
+
+      content.innerHTML = '';
+      content.appendChild(fragment);
+
+      // 3. Wrap all tables in responsive scroll containers
+      content.querySelectorAll('table').forEach((table) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-wrapper';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      });
+
+      // 4. Enhance figure paragraphs (<img> + <em> caption) with framed figure styling & click-to-zoom
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      content.querySelectorAll('p').forEach((p) => {
+        const img = p.querySelector('img');
+        if (img) {
+          p.classList.add('figure-frame');
+          img.loading = 'lazy';
+          img.style.cursor = 'zoom-in';
+          img.addEventListener('click', () => {
+            const em = p.querySelector('em');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = em ? em.textContent : img.alt;
+            lightbox.hidden = false;
+            document.body.style.overflow = 'hidden';
+          });
+        }
+      });
+
+      function closeLightbox() {
+        lightbox.hidden = true;
+        document.body.style.overflow = '';
+      }
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox && !lightbox.hidden) closeLightbox();
+      });
+
+      // 5. Floating glassmorphic navbar morph & reading progress bar on scroll
+      const header = document.getElementById('siteHeader');
+      const progressBar = document.getElementById('readingProgress');
+      const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+      const sections = navLinks
+        .map((link) => {
+          const id = link.getAttribute('href').slice(1);
+          return { link, el: document.getElementById(id) };
+        })
+        .filter((item) => item.el);
+
+      function onScroll() {
+        const y = window.scrollY;
+        if (header) {
+          header.classList.toggle('nav-glass', y > 48);
+        }
+
+        if (progressBar) {
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const pct = maxScroll > 0 ? Math.min(100, (y / maxScroll) * 100) : 0;
+          progressBar.style.width = pct + '%';
+        }
+
+        // Active section highlight in navbar
+        let activeLink = null;
+        const offset = 150;
+        for (const item of sections) {
+          const top = item.el.getBoundingClientRect().top;
+          if (top <= offset) {
+            activeLink = item.link;
+          }
+        }
+        navLinks.forEach((l) => l.classList.toggle('is-active', l === activeLink));
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+</body>
+</html>
