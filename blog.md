@@ -4,16 +4,6 @@ title: "HouseValue-ML: Stage A Tech Blog"
 
 # HouseValue-ML: Predicting California Real Estate Prices and Analyzing Housing Market Trends
 
-[![Course](https://img.shields.io/badge/Course-ITE%20351%3A%20AI%20%26%20Applications-1E3A8A)](https://github.com/Gab1-Flt/HouseValue-ML)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![Scikit-Learn](https://img.shields.io/badge/scikit--learn-v1.7-orange?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Stage](https://img.shields.io/badge/Stage%20A-Blog%20in%20Progress-047857)](#table-of-contents)
-
-> **Project Topic:** *A step-by-step Machine Learning pipeline using `scikit-learn` to predict real estate prices and analyze housing market trends.*
-
----
-
 ## Team
 
 | Member | Department | Email |
@@ -21,8 +11,6 @@ title: "HouseValue-ML: Stage A Tech Blog"
 | **Corentin Lepeltier** | Computer Science | `corentin.lepeltier@edu.ece.fr` |
 | **Gabin Flotat** | Computer Science | `gabin.flotat@edu.ece.fr` |
 | **Roméo Poncelet** | Computer Science | `romeo.poncelet@edu.ece.fr` |
-
-**Presentation Video / Audio (Task 2):** *To be added for Stage B final submission (under 10-minute blog walkthrough & live inference demo).*
 
 ---
 
